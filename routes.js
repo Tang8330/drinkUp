@@ -9,6 +9,27 @@ function ensureAuthenticated(req, res, next) {
 module.exports = function (app) {
 	app.get('/', function(req, res) {
 		res.render('index');
-		//do something
 	});
+	app.get('/about', function(req, res) {
+		res.render('about');
+	});
+	app.get('/register', function(req, res) {
+		res.render('register');
+	});
+	app.get('/forgot', function(req, res) {
+		res.render('forgot_password');
+	});
+	app.post('/login', passport.authenticate('local'), function(req, res) {
+        res.redirect('/');
+    });
+	app.post('/register', function(req, res) {
+		console.log('called');
+		console.log(req.body.username);
+        Account.register(new Account({ username : req.body.username }), req.body.password, function(err, account) {
+			if (err) {
+                return res.render('register', { account : account });
+            }
+            res.redirect('/');
+        });
+    });
 }

@@ -1,62 +1,9 @@
-.modal .modal-body {
-    max-height: 420px;
-    overflow-y: auto;
-}
-
-a.link-nav:link, a.link-nav:visited, a.link-nav:hover, a.link-nav:active {
-	text-decoration:none;
-	color: #333333;
-} 
-
-table.fit-page{
-	width: 100%;
-}
-
-.hidden {
-	display:none;
-}
 .top-buffer {
-	margin-top:20px;
+	margin-top : 20px;
 }
-.sm-top-buffer {
-	margin-top:5px;
+.md-buffer{
+	margin-top : 10px;
 }
-body{
-	font-family: 'Open Sans', sans-serif !important;
-}
-.bs-header{
-	padding: 60px 15px 40px;
-}	
-.bs-nav{
-	background-color: #f8f8f8;
-	border-color: #e7e7e7;
-}
-.navbar-inverse .navbar-toggle {
-	background-color: #ddd !important;
-}
-.navbar-inverse .navbar-toggle {
-	border-color: #ddd;
-}
-.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus{
-	color: #555 !important;
-	background-color: #e7e7e7 !important;
-}
-
-.navbar-brand{
-	color: #555 !important;
-}
-
-.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-	color: #555 !important;
-	background-color: #e7e7e7 !important;
-}
-.form-signin{
-	max-width: 335px;
-	padding: 2%;
-	margin:auto;
-}
-
-.form-profile{
-	margin:auto;
-	max-width: 500px;
+.sm-buffer {
+	margin-top : 5px;
 }

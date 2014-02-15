@@ -1,26 +1,9 @@
 var mongoose = require('mongoose')
 , Schema = mongoose.Schema
 , passportLocalMongoose = require('passport-local-mongoose');
-var Account = mongoose.Schema({
-    facebook         : {
-        id           : String,
-        token        : String,
-        email        : String,
-        name         : String
-    },
-    twitter          : {
-        id           : String,
-        token        : String,
-        displayName  : String,
-        username     : String
-    },
-    google           : {
-        id           : String,
-        token        : String,
-        email        : String,
-        name         : String
-    }
 
+var Account = new Schema({
+    name: String
 });
 
 Account.plugin(passportLocalMongoose);
