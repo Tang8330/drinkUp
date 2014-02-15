@@ -19,6 +19,9 @@ module.exports = function (app) {
 	app.get('/forgot', function(req, res) {
 		res.render('forgot_password');
 	});
+	app.get('/404', function(req, res) {
+		res.render('404');
+	});
 	app.post('/login', passport.authenticate('local'), function(req, res) {
         res.redirect('/');
     });
