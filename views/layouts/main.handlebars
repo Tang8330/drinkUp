@@ -15,10 +15,7 @@
                   </button>
                   <a class="navbar-brand" href="/"><b>How's the Line?</b></a>
               </div>
-			  <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/register" class="register-btn">Register</a></li>
-					<li><a href="#" class="signin-btn">Sign In</a></li>
-              </ul>
+			  
 				{{^	user}}
 				<form class="navbar-form navbar-right" style="display:none">
 					  <div class="form-group">
@@ -29,8 +26,13 @@
 				</form>
 				{{/user}}
                 <div class="navbar-collapse collapse navbar-responsive-collapse">
+				  <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/register" class="register-btn">Register</a></li>
+					<li><a href="#" class="signin-btn">Sign In</a></li>
+                  </ul>
                   <ul class="nav navbar-nav navbar-left">
                         <li><a href="/main">Main</a></li>
+						<li><a href="/order">Order Online</a></li>
 						<li><a href="/about">About</a></li>
                   </ul>
                 </div><!-- /.nav-collapse -->

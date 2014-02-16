@@ -10,6 +10,9 @@ module.exports = function (app) {
 	app.get('/', function(req, res) {
 		res.render('index');
 	});
+	app.get('/order', function(req, res) {
+		res.render('menu');
+	});
 	app.get('/about', function(req, res) {
 		res.render('about');
 	});
