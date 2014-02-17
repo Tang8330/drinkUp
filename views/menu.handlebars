@@ -1,3 +1,12 @@
+<link rel="stylesheet" type="text/css" href="css/bootstrap-select.css">
+<style>
+.modal-body {
+    position: relative;
+    overflow-y: auto;
+    max-height: 400px;
+    padding: 15px;
+}
+</style>
 <div class="col-xs-8">
 	<h1> Order Online </h1>
 </div>
@@ -8,7 +17,7 @@
 	<ul>
 		<li class="dropdown">
 			<span class="dropdown-toggle" data-toggle="dropdown">Hot Drinks<b class="caret"></b></span>
-			<ul class="dropdown-menu" data-toggle="modal" data-target=".hot-drink-modal">
+			<ul class="dropdown-menu drinks" data-toggle="modal" data-target=".hot-drink-modal">
 				<li><a href="#">Coffee</a></li>
 				<li><a href="#">French Vanilla</a></li>
 				<li><a href="#">Cafe Mocha</a></li>
@@ -17,7 +26,7 @@
 		</li>
 		<li class="dropdown">
 			<span class="dropdown-toggle" data-toggle="dropdown">Cold Drinks<b class="caret"></b></span>
-			<ul class="dropdown-menu" data-toggle="modal" data-target=".cold-drink-modal">
+			<ul class="dropdown-menu drinks" data-toggle="modal" data-target=".hot-drink-modal">
 				<li><a href="#">Ice Cappuccino</a></li>
 				<li><a href="#">Ice Capp Supreme</a></li>
 				<li><a href="#">Mocha Ice Cappuccino</a></li>
@@ -28,8 +37,8 @@
 				<li><a href="#">Fruit Smoothie -  Mixed Berry /Strawberry Banana</a></li>
 				<li><a href="#">Frozen Lemonade</a></li>
 				<li><a href="#">Soft Drinks</a></li>
-				<li><a href="#">Milk - White / Chocolate</a></li>
-				<li><a href="#">Juice - Orange / Apple</a></li>
+				<li class="milk"><a href="#">Milk - White / Chocolate</a></li>
+				<li class="juice"><a href="#">Juice - Orange / Apple</a></li>
 			</ul>
 		</li>
 		<li class="dropdown">
@@ -51,84 +60,82 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="Hot Drink Options" id="hotDrinkTitle">Hot Drink Options</h4>
+				<h4 class="drink-header"></h4>
 			</div>
 			<div class="modal-body">
-				<div>
-					Size: &nbsp;
-					<label>
-						<input type="radio" name="hot-drink-option" value="XS">XS &nbsp;
-					</label>
-					<label>
-						<div class="radio-button">
-							<input type="radio" name="hot-drink-option">S &nbsp;
-						</div>
-					</label>
-					<label>
-						<div class="radio-button">
-							<input type="radio" name="hot-drink-option">M &nbsp;
-						</div>
-					</label>
-					<label>
-						<div class="radio-button">
-							<input type="radio" name="hot-drink-option">L &nbsp;
-						</div>
-					</label>
-					<label>
-						<div class="radio-button">
-							<input type="radio" name="hot-drink-option">XL &nbsp;
-						</div>
-					</label>
+				<div class="col-xs-6">
+					<select class="selectpicker form-control default-select">
+						<option>XS</option>
+						<option>S</option>
+						<option>M</option>
+						<option>L</option>
+						<option>XL</option>
+					</select>
+					<select class="selectpicker form-control milk-select" style="display:none">
+						<option>Chocolate</option>
+						<option>White</option>
+					</select>
+					<select class="selectpicker form-control juice-select" style="display:none">
+						<option>Orange</option>
+						<option>Apple</option>
+					</select>
+				</div>
+				<div class="col-xs-6">
+					<input type="number" class="text-center form-control" value="1"></input>
+				</div>
+				<div class="top-buffer col-xs-12">
+					<input type="text" class="form-control default-input" placeholder="Special Note: Double-Double">
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-primary">Submit</button>
+				<button type="button" class="btn btn-primary">Add</button>
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 			</div>
 		</div>
 	</div>
 </div>
-<div class="modal fade cold-drink-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="Cold Drink Options" id="coldDrinkTitle">Cold Drink Options</h4>
-			</div>
-			<div class="modal-body">
-				<div>
-					Size: &nbsp;
-					<label>
-						<div class="radio-button">
-							<input type="radio" name="cold-drink-option">S &nbsp;
-						</div>
-					</label>
-					<label>
-						<div class="radio-button">
-							<input type="radio" name="cold-drink-option">M &nbsp;
-						</div>
-					</label>
-					<label>
-						<div class="radio-button">
-							<input type="radio" name="cold-drink-option">L &nbsp;
-						</div>
-					</label>
-					<label>
-						<div class="radio-button">
-							<input type="radio" name="cold-drink-option">XL &nbsp;
-						</div>
-					</label>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-primary">Submit</button>
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			</div>
-		</div>
-	</div>
-</div>
+<video></video>
 <div class="col-xs-6">
 	<!-- Show what you've ordered so far -->
 </div>
-<script src="http://one-shop.ca/js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/bootstrap-select.min.js"></script>
+<script>
+$(document.body).on('click', 'ul.drinks li', function() {
+	$(".juice-select").hide();
+	$(".milk-select").hide();
+	$(".default-select").hide();
+	$(".default-input").hide();
+	
+	if ($(this).hasClass("juice")) {
+		$(".juice-select").show();
+	}
+	else if ($(this).hasClass("milk")) {
+		$(".milk-select").show();
+	}
+	else {
+		$(".default-select").show();
+		$(".default-input").show();
+	}
+	$('.drink-header').text($(this).text());
+
+});
+(function () {
+    navigator.getMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia);
+
+    navigator.getMedia(
+        // constraints
+        {video:true, audio:false},
+
+        // success callback
+        function (mediaStream) {
+            var video = document.getElementsByTagName('video')[0];
+            video.src = window.URL.createObjectURL(mediaStream);
+            video.play();
+        },   
+        //handle error
+        function (error) {
+            console.log(error);
+        })   
+})();
+</script>

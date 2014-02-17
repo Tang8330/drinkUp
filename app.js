@@ -7,7 +7,6 @@ var path = require('path'),
 	fs = require('fs'),
     LocalStrategy = require('passport-local').Strategy;
 
-var flash    = require('connect-flash');
 
 var app = express();
 
