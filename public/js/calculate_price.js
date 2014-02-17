@@ -59,12 +59,21 @@ var price = [{"Item":"Coffee-S","Price":1.33},
 {"Item":"Iced Coffee-S","Price":1.48},
 {"Item":"Iced Coffee-M","Price":1.81},
 {"Item":"Iced Coffee-L","Price":2.13},
-{"Item":"Real Fruit Smoothie-S","Price":2.69},
-{"Item":"Real Fruit Smoothie-M","Price":3.49},
-{"Item":"Real Fruit Smoothie-L","Price":4.29},
+{"Item":"Real Fruit Smoothie(Mixed Berry)-S","Price":2.69},
+{"Item":"Real Fruit Smoothie(Mixed Berry)-M","Price":3.49},
+{"Item":"Real Fruit Smoothie(Mixed Berry)-L","Price":4.29},
+{"Item":"Real Fruit Smoothie(Strawberry Banana)-S","Price":2.69},
+{"Item":"Real Fruit Smoothie(Strawberry Banana)-M","Price":3.49},
+{"Item":"Real Fruit Smoothie(Strawberry Banana)-L","Price":4.29},
+{"Item":"Real Fruit Smoothie(Orange Tangerine)-S","Price":2.69},
+{"Item":"Real Fruit Smoothie(Orange Tangerine)-M","Price":3.49},
+{"Item":"Real Fruit Smoothie(Orange Tangerine)-L","Price":4.29},
 {"Item":"Frozen Lemonade-S","Price":1.49},
 {"Item":"Frozen Lemonade-M","Price":2},
 {"Item":"Frozen Lemonade-L","Price":2.33},
+{"Item":"Frozen Raspberry Lemonade-S","Price":1.49},
+{"Item":"Frozen Raspberry Lemonade-M","Price":2},
+{"Item":"Frozen Raspberry Lemonade-L","Price":2.33},
 {"Item":"Iced Latte-S","Price":2},
 {"Item":"Iced Latte-M","Price":2.59},
 {"Item":"Iced Latte-L","Price":3.29},
@@ -102,8 +111,10 @@ function calculatePrice() {
 	
 	for (var i = 0; i < price.length; i++) {
 		if (price[i].Item == query) {
-			subtotal = subtotal + parseFloat(price[i].Price);
+			subtotal = subtotal + (parseFloat(items.quantity)*parseFloat(price[i].Price));
 			subtotal = +subtotal.toFixed(2);
+			realPrice = parseFloat(items.quantity)*parseFloat(price[i].Price);
+			realPrice = +realPrice.toFixed(2);
 			//update Prices
 			$(".subtotal").text(subtotal);
 			var size;
@@ -121,9 +132,8 @@ function calculatePrice() {
 				default:
 					size = "Extra Large";
 				}
-			var template= items.quantity + " " + size + " " + items.name + " - " + price[i].Price + "<br>";
+			var template= items.quantity + " " + size + " " + items.name + " - $" + realPrice + "<br>";
 			$(".items-ordered").append(template);
 		}		
 	}
-	
 }
