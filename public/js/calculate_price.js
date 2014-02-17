@@ -98,13 +98,30 @@ function calculatePrice() {
 	console.log(JSON.stringify(items));
 	var query = items.name+"-"+items.size;
 	console.log(query);
+	var label = "Purchased:"
 	
 	for (var i = 0; i < price.length; i++) {
 		if (price[i].Item == query) {
 			subtotal = subtotal + parseFloat(price[i].Price);
+			subtotal = +subtotal.toFixed(2);
 			//update Prices
 			$(".subtotal").text(subtotal);
-			var template= "You have purchased "+items.name + " quantity " + items.quantity + " size " + items.size + " price " + price[i].Price;
+			var size;
+			switch(items.size)
+				{
+				case "S":
+					  size = "Small";
+					  break;
+				case "M":
+					  size = "Medium";
+					  break;
+				case "L":
+					size="Large";
+					break;
+				default:
+					size = "Extra Large";
+				}
+			var template= items.quantity + " " + size + " " + items.name + " - " + price[i].Price + "<br>";
 			$(".items-ordered").append(template);
 		}		
 	}
