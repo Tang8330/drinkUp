@@ -4,7 +4,6 @@ var path = require('path'),
     mongoose = require('mongoose'),
     passport = require('passport'),
 	exphbs = require('express3-handlebars'),
-	fs = require('fs'),
     LocalStrategy = require('passport-local').Strategy;
 
 
@@ -58,6 +57,6 @@ mongoose.connect('mongodb://localhost/lineUp');
 // Setup routes
 require('./routes.js')(app);
 
-http.createServer(app).listen(30000, '0.0.0.0', function() {
+http.createServer(app).listen(30000, 'localhost', function() {
     console.log("Express server listening on %s:%d in %s mode", '192.168.0.14', 3000, app.settings.env);
 });
