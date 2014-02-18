@@ -17,39 +17,40 @@
 	<ul>
 		<li class="dropdown">
 			<span class="dropdown-toggle" data-toggle="dropdown">Hot Drinks<b class="caret"></b></span>
-			<ul class="dropdown-menu drinks" data-toggle="modal" data-target=".hot-drink-modal">
+			<ul class="dropdown-menu drinks" data-toggle="modal" data-target=".drinks-modal">
 				<li><a href="#">Coffee</a></li>
 				<li><a href="#">French Vanilla</a></li>
 				<li><a href="#">Cafe Mocha</a></li>
-				<li><a href="#">Specialty Tea</a></li>
+				<li><a href="#">Tea</a></li>
 			</ul>
 		</li>
 		<li class="dropdown">
 			<span class="dropdown-toggle" data-toggle="dropdown">Cold Drinks<b class="caret"></b></span>
-			<ul class="dropdown-menu drinks" data-toggle="modal" data-target=".hot-drink-modal">
-				<li><a href="#">Iced Capp</a></li>
+			<ul class="dropdown-menu drinks" data-toggle="modal" data-target=".drinks-modal">
+				<li class="no-XL"><a href="#">Iced Capp</a></li>
 				<li><a href="#">Iced Capp Supreme</a></li>
 				<li><a href="#">Mocha Iced Cappuccino</a></li>
 				<li><a href="#">Mocha Iced Coffee</a></li>
-				<li><a href="#">Iced Coffee</a></li>
-				<li><a href="#">Iced Latte</a></li>
-				<li><a href="#">Vanilla Bean Iced Latte</a></li>
-				<li><a href="#">Iced Chocolate Latte</a></li>
+				<li class="no-XL"><a href="#">Iced Coffee</a></li>
+				<li class="no-XL"><a href="#">Iced Latte</a></li>
+				<li class="no-XL"><a href="#">Vanilla Bean Iced Latte</a></li>
+				<li class="no-XL"><a href="#">Iced Chocolate Latte</a></li>
 				<li><a href="#">Real Brewed Iced Tea</a></li>
-				<li><a href="#">Real Fruit Smoothie(Mixed Berry)</a></li>
-				<li><a href="#">Real Fruit Smoothie(Strawberry Banana)</a></li>
-				<li><a href="#">Real Fruit Smoothie(Orange Tangerine)</a></li>
-				<li><a href="#">Frozen Lemonade</a></li>
-				<li><a href="#">Frozen Raspberry Lemonade</a></li>
+				<li class="no-XL"><a href="#">Real Fruit Smoothie(Mixed Berry)</a></li>
+				<li class="no-XL"><a href="#">Real Fruit Smoothie(Strawberry Banana)</a></li>
+				<li class="no-XL"><a href="#">Real Fruit Smoothie(Orange Tangerine)</a></li>
+				<li class="no-XL"><a href="#">Frozen Lemonade</a></li>
+				<li class="no-XL"><a href="#">Frozen Raspberry Lemonade</a></li>
 				<li><a href="#">Soft Drinks</a></li>
-				<li class="milk"><a href="#">Milk - White / Chocolate</a></li>
-				<li class="juice"><a href="#">Juice - Orange / Apple</a></li>
+				<li class="milk"><a href="#">Milk</a></li>
+				<li class="juice"><a href="#">Juice(Orange)</a></li>
+				<li class="juice"><a href="#">Juice(Apple)</a></li>
 			</ul>
 		</li>
 		<li class="dropdown">
 			<span class="dropdown-toggle" data-toggle="dropdown">Baked Goods<b class="caret"></b></span>
-			<ul class="dropdown-menu">
-				<li><a href="#">Cookies</a></li>
+			<ul class="dropdown-menu baked-goods" data-toggle="modal" data-target=".baked-goods-modal">
+				<li class="cookie"><a href="#">Cookies</a></li>
 				<li><a href="#">Bagel</a></li>
 				<li><a href="#">Cinnamon Bun</a></li>
 				<li><a href="#">Danish</a></li>
@@ -61,7 +62,7 @@
 		</li>
 	</ul>
 </div>
-<div class="modal fade hot-drink-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div class="modal fade drinks-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -69,23 +70,37 @@
 			</div>
 			<div class="modal-body">
 				<div class="col-xs-6">
-					<select class="selectpicker form-control default-select">
-						<option>S</option>
-						<option>M</option>
-						<option>L</option>
-						<option>XL</option>
+					<label for="hot-drink-options">Size:</label>
+					<select class="selectpicker form-control default-select" name="hot-drink-options">
+						<option>Small</option>
+						<option>Medium</option>
+						<option>Large</option>
+						<option>Extra Large</option>
+					</select>
+					<select class="selectpicker form-control no-XL-option-select" style="display:none">
+						<option>Small</option>
+						<option>Medium</option>
+						<option>Large</option>
 					</select>
 					<select class="selectpicker form-control milk-select" style="display:none">
-						<option>Chocolate</option>
-						<option>White</option>
+						<option>Small</option>
+						<option>Large</option>
 					</select>
 					<select class="selectpicker form-control juice-select" style="display:none">
 						<option>Orange</option>
 						<option>Apple</option>
 					</select>
 				</div>
-				<div class="col-xs-6">
+				<div class="col-xs-3">
+					<label>Quantity: &nbsp</label>
 					<input type="number" class="text-center form-control drink-item" value="1"></input>
+				</div>
+				<div class="col-xs-12">
+					<label for="milk-type-options" class="milk-type-label top-buffer" style="display:none">Type:</label>
+					<select class="selectpicker form-control milk-select" name="milk-type-options" style="display:none">
+						<option>White Milk</option>
+						<option>Chocolate Milk</option>
+					</select>
 				</div>
 				<div class="top-buffer col-xs-12">
 					<input type="text" class="form-control default-input" placeholder="Special Note: Double-Double">
@@ -98,11 +113,65 @@
 		</div>
 	</div>
 </div>
+<div class="modal fade baked-goods-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="baked-goods-header"></h4>
+			</div>
+			<div class="modal-body">
+				<div class="col-xs-6">
+					<select class="selectpicker form-control default-select" style="display:none">
+						<option>Apple Fritter</option>
+						<option>Chocolate Dip</option>
+						<option>Honey Dip</option>
+						<option>Vanilla Dip</option>
+						<option>Blueberry Fritter</option>
+						<option>Dutchie</option>
+						<option>Maple Dip</option>
+						<option>Chocolate Glazed</option>
+						<option>Double Chocolate</option>
+						<option>Old Fashion Plain</option>
+						<option>Old Fashion Glazed</option>
+						<option>Sour Cream Plain</option>
+						<option>Strawberry Vanilla</option>
+						<option>Strawberry</option>
+						<option>Boston Cream</option>
+						<option>Canadian Maple</option>
+						<option>Sour Cream Glazed</option>
+						<option>Honey Cruller</option>
+						<option>Blueberry</option>
+						<option>Walnut Crunch</option>
+					</select>
+					<select class="selectpicker form-control cookie-select" style="display:none">
+						<option>Choco. Chunk</option>
+						<option>Peanut Butter</option>
+						<option>Triple Choco. Chip</option>
+						<option>White Choco. Macadamia Nut</option>
+						<option>Caramel Choco. Pecan</option>
+						<option>Oatmeal Raisin Spice</option>
+						<option>Trail Mix Cookie with Fruit and Nuts</option>
+					</select>
+				</div>
+				<div class="col-xs-6">
+					<input type="number" class="text-center form-control baked-good-item" value="1"></input>
+				</div>
+				<div class="top-buffer col-xs-12">
+					<input type="text" class="form-control default-input" placeholder="Special Note: Heated">
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary add-baked-goods" data-dismiss="modal">Add</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
 <div class="col-xs-6">
 	<div class="col-xs-1 col-xs-offset-2">
 		Purchased:
 	</div>
-	<div class="col-xs-8 col-xs-offset-1 text-left row items-ordered">
+	<div class="col-xs-8 col-xs-offset-1 text-left row items-ordered" style="max-height: 200px">
 		<!-- What they order goes here -->
 	</div>
 </div>
@@ -111,16 +180,22 @@
 <script src="js/bootstrap-select.min.js"></script>
 <script>
 $(document.body).on('click', 'ul.drinks li', function() {
+	$(".no-XL-option-select").hide();
 	$(".juice-select").hide();
 	$(".milk-select").hide();
+	$(".milk-type-label").hide();
 	$(".default-select").hide();
 	$(".default-input").hide();
 	
-	if ($(this).hasClass("juice")) {
+	if ($(this).hasClass("no-XL")) {
+		$(".no-XL-option-select").show();
+	}
+	else if ($(this).hasClass("juice")) {
 		$(".juice-select").show();
 	}
 	else if ($(this).hasClass("milk")) {
 		$(".milk-select").show();
+		$(".milk-type-label").show();
 	}
 	else {
 		$(".default-select").show();
@@ -128,5 +203,21 @@ $(document.body).on('click', 'ul.drinks li', function() {
 	}
 	$('.drink-header').text($(this).text());
 
+});
+
+$(document.body).on('click', 'ul.baked-goods li', function() {
+	$(".cookie-select").hide();
+	$(".default-select").hide();
+	$(".default-input").hide();
+	
+	if ($(this).hasClass("cookie")) {
+		$(".cookie-select").show();
+	}
+	else {
+		$(".default-select").show();
+		$(".default-input").show();
+	}
+	$('.baked-goods-header').text($(this).text());
+	
 });
 </script>

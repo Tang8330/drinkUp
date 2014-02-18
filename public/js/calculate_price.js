@@ -1,32 +1,32 @@
-var price = [{"Item":"Coffee-S","Price":1.33},
-{"Item":"Coffee-M","Price":1.52},
-{"Item":"Coffee-L","Price":1.71},
-{"Item":"Coffee-XL","Price":1.9},
-{"Item":"Tea-S","Price":1.33},
-{"Item":"Tea-M","Price":1.52},
-{"Item":"Tea-L","Price":1.71},
-{"Item":"Tea-XL","Price":1.9},
-{"Item":"French Vanilla-S","Price":1.69},
-{"Item":"French Vanilla-M","Price":1.95},
-{"Item":"French Vanilla-L","Price":2.24},
-{"Item":"French Vanilla-XL","Price":2.48},
-{"Item":"Hot Chocolate-S","Price":1.38},
-{"Item":"Hot Chocolate-M","Price":1.57},
-{"Item":"Hot Chocolate-L","Price":1.81},
-{"Item":"Hot Chocolate-XL","Price":2},
-{"Item":"Cafe Mocha-S","Price":1.9},
-{"Item":"Cafe Mocha-M","Price":2.24},
-{"Item":"Cafe Mocha-L","Price":2.43},
-{"Item":"Cafe Mocha-XL","Price":2.76},
-{"Item":"Latte/Cappuccino-S","Price":2},
-{"Item":"Latte/Cappuccino-M","Price":2.59},
-{"Item":"Latte/Cappuccino-L","Price":3.29},
-{"Item":"Vanilla Bean Latte-S","Price":2.25},
-{"Item":"Vanilla Bean Latte-M","Price":2.84},
-{"Item":"Vanilla Bean Latte-L","Price":3.54},
-{"Item":"Chocolate Latte-S","Price":2.6},
-{"Item":"Chocolate Latte-M","Price":3.19},
-{"Item":"Chocolate Latte-L","Price":3.89},
+var price = [{"Item":"Coffee-Small","Price":1.33},
+{"Item":"Coffee-Medium","Price":1.52},
+{"Item":"Coffee-Large","Price":1.71},
+{"Item":"Coffee-Extra Large","Price":1.9},
+{"Item":"Tea-Small","Price":1.33},
+{"Item":"Tea-Medium","Price":1.52},
+{"Item":"Tea-Large","Price":1.71},
+{"Item":"Tea-Extra Large","Price":1.9},
+{"Item":"French Vanilla-Small","Price":1.69},
+{"Item":"French Vanilla-Medium","Price":1.95},
+{"Item":"French Vanilla-Large","Price":2.24},
+{"Item":"French Vanilla-Extra Large","Price":2.48},
+{"Item":"Hot Chocolate-Small","Price":1.38},
+{"Item":"Hot Chocolate-Medium","Price":1.57},
+{"Item":"Hot Chocolate-Large","Price":1.81},
+{"Item":"Hot Chocolate-Extra Large","Price":2},
+{"Item":"Cafe Mocha-Small","Price":1.9},
+{"Item":"Cafe Mocha-Medium","Price":2.24},
+{"Item":"Cafe Mocha-Large","Price":2.43},
+{"Item":"Cafe Mocha-Extra Large","Price":2.76},
+{"Item":"Latte/Cappuccino-Small","Price":2},
+{"Item":"Latte/Cappuccino-Medium","Price":2.59},
+{"Item":"Latte/Cappuccino-Large","Price":3.29},
+{"Item":"Vanilla Bean Latte-Small","Price":2.25},
+{"Item":"Vanilla Bean Latte-Medium","Price":2.84},
+{"Item":"Vanilla Bean Latte-Large","Price":3.54},
+{"Item":"Chocolate Latte-Small","Price":2.6},
+{"Item":"Chocolate Latte-Medium","Price":3.19},
+{"Item":"Chocolate Latte-Large","Price":3.89},
 {"Item":"Flavour Shot","Price":0.25},
 {"Item":"Whipped/Espresso Shot","Price":0.6},
 {"Item":"Extreme Italian","Price":4.99},
@@ -53,36 +53,36 @@ var price = [{"Item":"Coffee-S","Price":1.33},
 {"Item":"Soup Bagel Combo","Price":4.85},
 {"Item":"Chili","Price":4.09},
 {"Item":"Chili Donut Combo","Price":5.89},
-{"Item":"Iced Capp-S","Price":1.89},
-{"Item":"Iced Capp-M","Price":2.61},
-{"Item":"Iced Capp-L","Price":3.23},
-{"Item":"Iced Coffee-S","Price":1.48},
-{"Item":"Iced Coffee-M","Price":1.81},
-{"Item":"Iced Coffee-L","Price":2.13},
-{"Item":"Real Fruit Smoothie(Mixed Berry)-S","Price":2.69},
-{"Item":"Real Fruit Smoothie(Mixed Berry)-M","Price":3.49},
-{"Item":"Real Fruit Smoothie(Mixed Berry)-L","Price":4.29},
-{"Item":"Real Fruit Smoothie(Strawberry Banana)-S","Price":2.69},
-{"Item":"Real Fruit Smoothie(Strawberry Banana)-M","Price":3.49},
-{"Item":"Real Fruit Smoothie(Strawberry Banana)-L","Price":4.29},
-{"Item":"Real Fruit Smoothie(Orange Tangerine)-S","Price":2.69},
-{"Item":"Real Fruit Smoothie(Orange Tangerine)-M","Price":3.49},
-{"Item":"Real Fruit Smoothie(Orange Tangerine)-L","Price":4.29},
-{"Item":"Frozen Lemonade-S","Price":1.49},
-{"Item":"Frozen Lemonade-M","Price":2},
-{"Item":"Frozen Lemonade-L","Price":2.33},
-{"Item":"Frozen Raspberry Lemonade-S","Price":1.49},
-{"Item":"Frozen Raspberry Lemonade-M","Price":2},
-{"Item":"Frozen Raspberry Lemonade-L","Price":2.33},
-{"Item":"Iced Latte-S","Price":2},
-{"Item":"Iced Latte-M","Price":2.59},
-{"Item":"Iced Latte-L","Price":3.29},
-{"Item":"Vanilla Bean Iced Latte-S","Price":2.25},
-{"Item":"Vanilla Bean Iced Latte-M","Price":2.84},
-{"Item":"Vanilla Bean Iced Latte-L","Price":3.54},
-{"Item":"Iced Chocolate Latte-S","Price":2.6},
-{"Item":"Iced Chocolate Latte-M","Price":3.19},
-{"Item":"Iced Chocolate Latte-L","Price":3.89}];
+{"Item":"Iced Capp-Small","Price":1.89},
+{"Item":"Iced Capp-Medium","Price":2.61},
+{"Item":"Iced Capp-Large","Price":3.23},
+{"Item":"Iced Coffee-Small","Price":1.48},
+{"Item":"Iced Coffee-Medium","Price":1.81},
+{"Item":"Iced Coffee-Large","Price":2.13},
+{"Item":"Real Fruit Smoothie(Mixed Berry)-Small","Price":2.69},
+{"Item":"Real Fruit Smoothie(Mixed Berry)-Medium","Price":3.49},
+{"Item":"Real Fruit Smoothie(Mixed Berry)-Large","Price":4.29},
+{"Item":"Real Fruit Smoothie(Strawberry Banana)-Small","Price":2.69},
+{"Item":"Real Fruit Smoothie(Strawberry Banana)-Medium","Price":3.49},
+{"Item":"Real Fruit Smoothie(Strawberry Banana)-Large","Price":4.29},
+{"Item":"Real Fruit Smoothie(Orange Tangerine)-Small","Price":2.69},
+{"Item":"Real Fruit Smoothie(Orange Tangerine)-Medium","Price":3.49},
+{"Item":"Real Fruit Smoothie(Orange Tangerine)-Large","Price":4.29},
+{"Item":"Frozen Lemonade-Small","Price":1.49},
+{"Item":"Frozen Lemonade-Medium","Price":2},
+{"Item":"Frozen Lemonade-Large","Price":2.33},
+{"Item":"Frozen Raspberry Lemonade-Small","Price":1.49},
+{"Item":"Frozen Raspberry Lemonade-Medium","Price":2},
+{"Item":"Frozen Raspberry Lemonade-Large","Price":2.33},
+{"Item":"Iced Latte-Small","Price":2},
+{"Item":"Iced Latte-Medium","Price":2.59},
+{"Item":"Iced Latte-Large","Price":3.29},
+{"Item":"Vanilla Bean Iced Latte-Small","Price":2.25},
+{"Item":"Vanilla Bean Iced Latte-Medium","Price":2.84},
+{"Item":"Vanilla Bean Iced Latte-Large","Price":3.54},
+{"Item":"Iced Chocolate Latte-Small","Price":2.6},
+{"Item":"Iced Chocolate Latte-Medium","Price":3.19},
+{"Item":"Iced Chocolate Latte-Large","Price":3.89}];
 
 
 /**
@@ -107,9 +107,9 @@ function calculatePrice() {
 	console.log(JSON.stringify(items));
 	var query = items.name+"-"+items.size;
 	console.log(query);
-	var label = "Purchased:"
 	
 	for (var i = 0; i < price.length; i++) {
+		console.log(price[i].Item);
 		if (price[i].Item == query) {
 			subtotal = subtotal + (parseFloat(items.quantity)*parseFloat(price[i].Price));
 			subtotal = +subtotal.toFixed(2);
@@ -117,23 +117,8 @@ function calculatePrice() {
 			realPrice = +realPrice.toFixed(2);
 			//update Prices
 			$(".subtotal").text(subtotal);
-			var size;
-			switch(items.size)
-				{
-				case "S":
-					  size = "Small";
-					  break;
-				case "M":
-					  size = "Medium";
-					  break;
-				case "L":
-					size="Large";
-					break;
-				default:
-					size = "Extra Large";
-				}
-			var template= items.quantity + " " + size + " " + items.name + " - $" + realPrice + "<br>";
+			var template= items.quantity + " " + items.size + " " + items.name + " - $" + realPrice + "<br>";
 			$(".items-ordered").append(template);
-		}		
+		}
 	}
 }
