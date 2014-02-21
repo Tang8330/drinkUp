@@ -8,13 +8,13 @@ function ensureAuthenticated(req, res, next) {
 
 module.exports = function (app) {
 	app.get('/', function(req, res) {
-		res.render('index');
+		res.render('index', { user : req.user});
 	});	
 	app.get('/order', function(req, res) {
-		res.render('menu');
+		res.render('menu', { user : req.user});
 	});
 	app.get('/about', function(req, res) {
-		res.render('about');
+		res.render('about', { user : req.user});
 	});
 	app.get('/register', function(req, res) {
 		res.render('register');
@@ -25,11 +25,17 @@ module.exports = function (app) {
 	app.get('/404', function(req, res) {
 		res.render('404');
 	});
+	app.get('/login', function(req, res) {
+		res.render('login');
+	});
+	app.get('/signout', function(req, res) {
+		req.logout();
+		res.redirect("/");
+	});
 	app.post('/login', passport.authenticate('local'), function(req, res) {
         res.redirect('/');
     });
 	app.post('/register', function(req, res) {
-		console.log('called');
 		console.log(req.body.username);
         Account.register(new Account({ username : req.body.username }), req.body.password, function(err, account) {
 			if (err) {
