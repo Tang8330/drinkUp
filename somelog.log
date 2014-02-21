@@ -12,3 +12,5 @@ Error: failed to connect to [localhost:27017]
     at Socket.EventEmitter.emit (events.js:95:17)
     at net.js:441:14
     at process._tickCallback (node.js:415:13)
+Express server listening on 192.168.0.14:3000 in development mode
+Express server listening on 192.168.0.14:3000 in development mode
