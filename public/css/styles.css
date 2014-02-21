@@ -7,3 +7,9 @@
 .sm-buffer {
 	margin-top : 5px;
 }
+a.link-nav:link, a.link-nav:visited, a.link-nav:hover, a.link-nav:active {
+text-decoration: none;
+color: #333333;
+}
+
+
