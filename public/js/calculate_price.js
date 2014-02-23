@@ -95,6 +95,7 @@ var price = [{"Item":"Coffee-Small","Price":1.33},
  *
 **/
 $(document.body).on('click', '.add-drinks', function() {
+	$.cookie('subtotal',0);
 	calculatePrice();
 });
 
