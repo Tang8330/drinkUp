@@ -1,0 +1,36 @@
+<div class="col-xs-12 text-center">
+	<h1>Current Orders in the Queue</h1>
+	<i>Click on each order to get more details and to close the ticket</i>
+	<div class="col-xs-offset-1 col-xs-10 col-xs-offset-1 orders">
+	
+	</div>
+</div>
+<script src="/js/jquery-1.10.2.min.js"></script>
+<script src="/js/jquery.cookie.min.js"></script>
+<script src="/js/calculate_price.js"></script>
+<script src="/js/bootstrap-select.min.js"></script>
+<script>
+var getURL = "/getOrders";
+
+$(document).ready( function() {
+	setInterval(function(){ 
+		checkOrder();
+	}, 1500);
+});
+
+function checkOrder() {
+	
+	$.get( getURL, function( data ) {
+		for (var i = 0; i < data.length; i++ ) {
+			if ($("#"+data[i].id).text() == "") {
+			var temp2 = "";
+			for (var j = 0; j < data[i].detail.length; j++ ){
+				temp2 = temp2 + data[i].detail[j].name + " - " + data[i].detail[j].size + " - " + data[i].detail[j].quantity + " ";
+			}
+			var temp = "<div class='row md-buffer' id=" + data[i].id + "> <div class='col-xs-2'>" + data[i].name + "</div><div class='col-xs-6'>" + temp2 + "</div><div class='col-xs-2'>" + data[i].added + "</div>"+"<div class='col-xs-2'>$" + data[i].total + "</div></div>";
+			$(".orders").append(temp);
+			}
+		}
+	});
+}
+</script>

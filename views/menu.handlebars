@@ -7,6 +7,7 @@
     padding: 15px;
 }
 </style>
+<div id="main">
 <div class="col-xs-8">
 	<h1> Order Online </h1>
 </div>
@@ -173,51 +174,37 @@
 	</div>
 	<div class="col-xs-8 col-xs-offset-1 text-left row items-ordered" style="max-height: 200px">
 		<!-- What they order goes here -->
+		<button class="btn btn-default pull-right confirm-order" data-toggle="modal" data-target=".confirmation">Confirm</button>
+	</div>
+</div>
+<div class="modal fade confirmation" tabindex="-1" role="dialog" aria-labelledby="confirmation" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4>Order Confirmation</h4>
+				<i>Satisfied? Click Submit</i>
+			</div>
+			<div class="modal-body">
+				<input type="text" class="form-control order-name" placeholder="John Smith">
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary add-baked-goods order-submit" data-dismiss="modal">Submit</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<div id="success" style="display:none">
+	<div class="col-xs-12 text-center">
+		<h1>Success</h1>
+		<i>Your order is being processed, thanks for ordering</i>
+		<div class="row">
+			<button class="btn btn-default reOrder top-buffer"><i class="fa fa-reply"></i> Another Order</button>
+		</div>
 	</div>
 </div>
 <script src="/js/jquery-1.10.2.min.js"></script>
+<script src="/js/jquery.cookie.min.js"></script>
 <script src="/js/calculate_price.js"></script>
 <script src="/js/bootstrap-select.min.js"></script>
-<script>
-$(document.body).on('click', 'ul.drinks li', function() {
-	$(".no-XL-option-select").hide();
-	$(".juice-select").hide();
-	$(".milk-select").hide();
-	$(".milk-type-label").hide();
-	$(".default-select").hide();
-	$(".default-input").hide();
-	
-	if ($(this).hasClass("no-XL")) {
-		$(".no-XL-option-select").show();
-	}
-	else if ($(this).hasClass("juice")) {
-		$(".juice-select").show();
-	}
-	else if ($(this).hasClass("milk")) {
-		$(".milk-select").show();
-		$(".milk-type-label").show();
-	}
-	else {
-		$(".default-select").show();
-		$(".default-input").show();
-	}
-	$('.drink-header').text($(this).text());
-
-});
-
-$(document.body).on('click', 'ul.baked-goods li', function() {
-	$(".cookie-select").hide();
-	$(".default-select").hide();
-	$(".default-input").hide();
-	
-	if ($(this).hasClass("cookie")) {
-		$(".cookie-select").show();
-	}
-	else {
-		$(".default-select").show();
-		$(".default-input").show();
-	}
-	$('.baked-goods-header').text($(this).text());
-	
-});
-</script>

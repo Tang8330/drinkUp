@@ -1,3 +1,4 @@
+$.cookie.json = true;
 var price = [{"Item":"Coffee-Small","Price":1.33},
 {"Item":"Coffee-Medium","Price":1.52},
 {"Item":"Coffee-Large","Price":1.71},
@@ -85,6 +86,7 @@ var price = [{"Item":"Coffee-Small","Price":1.33},
 {"Item":"Iced Chocolate Latte-Large","Price":3.89}];
 
 
+//init JSON
 /**
  *
  *
@@ -92,24 +94,23 @@ var price = [{"Item":"Coffee-Small","Price":1.33},
  *
  *
 **/
-var order = new Array();
-var subtotal = 0;
+
+
 $(document.body).on('click', '.add-drinks', function() {
 	calculatePrice();
 });
 function calculatePrice() {
+	$.removeCookie('order');
+	var subtotal = 0;
+	var order = new Array();
 	var items = new Object();
 	items.name = $(".drink-header").text();
 	items.quantity = $(".drink-item").val();
 	items.size = $(".default-select").val();
 	// clear vals
 	$(".drink-item").val("1");
-	console.log(JSON.stringify(items));
 	var query = items.name+"-"+items.size;
-	console.log(query);
-	
 	for (var i = 0; i < price.length; i++) {
-		console.log(price[i].Item);
 		if (price[i].Item == query) {
 			subtotal = subtotal + (parseFloat(items.quantity)*parseFloat(price[i].Price));
 			subtotal = +subtotal.toFixed(2);
@@ -117,8 +118,22 @@ function calculatePrice() {
 			realPrice = +realPrice.toFixed(2);
 			//update Prices
 			$(".subtotal").text(subtotal);
+			$.cookie('subtotal',subtotal);
 			var template= items.quantity + " " + items.size + " " + items.name + " - $" + realPrice + "<br>";
 			$(".items-ordered").append(template);
+			order.push(items);
 		}
 	}
+	$.cookie("order", order);
 }
+
+$(document.body).on('click', '.order-submit', function() {
+	var orderName = $(".order-name").val();
+	var postURL = "/order";
+	$.post(postURL , { name : orderName });
+	$("#main").hide();
+	$("#success").show();
+});
+$(document.body).on('click', '.reOrder', function() {
+	location.reload();
+});
