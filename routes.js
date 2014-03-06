@@ -31,10 +31,24 @@ module.exports = function (app) {
 				result.total = collection[i].total;
 				result.name = collection[i].name;
 				result.detail = collection[i].details;
-				result.added =  moment(collection[i].dateAdded).format('h:mm:ss a');
+				// - 5 hrs
+				result.added =  moment(collection[i].dateAdded).zone('-0500').format('h:mm a');
 				results.push(result);
 			}
 			res.send(results);
+		});
+	});
+	
+	app.get("/getOrders/:id", ensureAuthenticated, function(req, res) {
+		var results = new Array();
+		Order.findByID(req.params.id, function(err, collection) {
+			var result = new Object();
+			result.id = collection._id
+			result.total = collection.total;
+			result.name = collection.name;
+			result.detail = collection.details;
+			result.added =  moment(collection.dateAdded).zone('-0500').format('h:mm a');
+			res.send(result);
 		});
 	});
 	

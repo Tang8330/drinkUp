@@ -85,8 +85,6 @@ var price = [{"Item":"Coffee-Small","Price":1.33},
 {"Item":"Iced Chocolate Latte-Medium","Price":3.19},
 {"Item":"Iced Chocolate Latte-Large","Price":3.89}];
 
-
-//init JSON
 /**
  *
  *
@@ -94,19 +92,20 @@ var price = [{"Item":"Coffee-Small","Price":1.33},
  *
  *
 **/
-
-
+var order = new Array();
+var id = "";
 $(document.body).on('click', '.add-drinks', function() {
 	calculatePrice();
 });
 function calculatePrice() {
-	$.removeCookie('order');
+//	$.removeCookie('order');
 	var subtotal = 0;
-	var order = new Array();
+	
 	var items = new Object();
 	items.name = $(".drink-header").text();
 	items.quantity = $(".drink-item").val();
 	items.size = $(".default-select").val();
+	items.desc = $(".special-note").val();
 	// clear vals
 	$(".drink-item").val("1");
 	var query = items.name+"-"+items.size;
@@ -134,6 +133,53 @@ $(document.body).on('click', '.order-submit', function() {
 	$("#main").hide();
 	$("#success").show();
 });
+
 $(document.body).on('click', '.reOrder', function() {
 	location.reload();
 });
+
+
+$(document.body).on('click', '.order-details', function() {
+	checkOrderByID($(this).attr("id"));
+});
+
+
+$(document.body).on('click', '.completed', function() {
+	$("#"+id).fadeOut("slow");
+});
+
+
+function checkOrder() {
+	var getURL = "/getOrders";
+	$.get( getURL, function( data ) {
+		for (var i = 0; i < data.length; i++ ) {
+			if ($("#"+data[i].id).text() == "") {
+			var temp2 = "";
+			for (var j = 0; j < data[i].detail.length; j++ ){
+				temp2 = temp2 + "<div class='col-xs-12'>" + data[i].detail[j].name + " - " + data[i].detail[j].size + " - " + data[i].detail[j].quantity + "</div> ";
+			}
+			var temp = "<div data-toggle='modal' data-target='#myModal' class='row md-buffer order-details' id=" + data[i].id + "> <div class='col-xs-2'>" + data[i].name + "</div><div class='col-xs-6'>" + temp2 + "</div><div class='col-xs-2'>" + data[i].added + "</div>"+"<div class='col-xs-2'>$" + data[i].total + "</div></div>";
+			$(".orders").append(temp);
+			}
+		}
+	});
+}
+
+function checkOrderByID(queryID) {
+	var temp = "";
+	var getURL = "/getOrders/"+queryID;
+	id = queryID;
+	$("#modalBody").empty();
+	//console.log(getURL);
+	$.get( getURL, function( data ) {
+		console.log(JSON.stringify(data));
+		$("#modalHeader").text(data.name +"'s Order Details on " + data.added);
+		for (var i = 0; i < data.detail.length; i++) {
+			if (data.detail[i].desc) temp = temp + "<div class='col-xs-12'>" + data.detail[i].name + " - " + data.detail[i].size + " - " + data.detail[i].quantity + "<i> "+ data.detail[i].desc + " </i></div> ";
+			else {
+				temp = temp + "<div class='col-xs-12'>" + data.detail[i].name + " - " + data.detail[i].size + " - " + data.detail[i].quantity + "</div> ";
+			}
+		}
+		$("#modalBody").append(temp);
+	});
+}
