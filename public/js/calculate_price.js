@@ -102,7 +102,6 @@ $(document.body).on('click', '.add-drinks', function() {
 function calculatePrice() {
 	var subtotal = 0;
 	var items = new Object();
-	var subtotal = 0;
 	items.name = $(".drink-header").text();
 	items.quantity = $(".drink-item").val();
 	items.size = $(".default-select").val();
@@ -112,10 +111,8 @@ function calculatePrice() {
 	var query = items.name+"-"+items.size;
 	for (var i = 0; i < price.length; i++) {
 		if (price[i].Item == query) {
-			subtotal = parseFloat($(".subtotal").text()) + (parseFloat(items.quantity)*parseFloat(price[i].Price));
-			subtotal = +subtotal.toFixed(2);
-			realPrice = parseFloat(items.quantity)*parseFloat(price[i].Price);
-			realPrice = +realPrice.toFixed(2);
+			subtotal = (parseFloat($(".subtotal").text()) + (parseFloat(items.quantity)*parseFloat(price[i].Price))).toFixed(2);
+			realPrice = (parseFloat(items.quantity)*parseFloat(price[i].Price)).toFixed(2);
 			//update Prices
 			$(".subtotal").text(subtotal);
 			$.cookie('subtotal',subtotal);
