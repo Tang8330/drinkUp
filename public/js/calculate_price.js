@@ -159,7 +159,7 @@ function checkOrder() {
 			for (var j = 0; j < data[i].detail.length; j++ ){
 				temp2 = temp2 + "<div class='col-xs-12'>" + data[i].detail[j].name + " - " + data[i].detail[j].size + " - " + data[i].detail[j].quantity + "</div> ";
 			}
-			var temp = "<div data-toggle='modal' data-target='#myModal' class='row md-buffer order-details' id=" + data[i].id + "> <div class='col-xs-2'>" + data[i].name + "</div><div class='col-xs-6'>" + temp2 + "</div><div class='col-xs-2'>" + data[i].added + "</div>"+"<div class='col-xs-2'>$" + data[i].total + "</div></div>";
+			var temp = "<button class='no-style btn-block' data-toggle='modal' data-target='#myModal'><div class='row md-buffer order-details' id=" + data[i].id + "> <div class='col-xs-2'>" + data[i].name + "</div><div class='col-xs-6'>" + temp2 + "</div><div class='col-xs-2'>" + data[i].added + "</div>"+"<div class='col-xs-2'>$" + data[i].total + "</div></div></button>";
 			$(".orders").append(temp);
 			}
 		}
