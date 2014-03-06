@@ -94,14 +94,15 @@ var price = [{"Item":"Coffee-Small","Price":1.33},
 **/
 var order = new Array();
 var id = "";
+
 $(document.body).on('click', '.add-drinks', function() {
+	$.cookie('subtotal',0);
 	calculatePrice();
 });
 function calculatePrice() {
-//	$.removeCookie('order');
 	var subtotal = 0;
-	
 	var items = new Object();
+	var subtotal = 0;
 	items.name = $(".drink-header").text();
 	items.quantity = $(".drink-item").val();
 	items.size = $(".default-select").val();
@@ -111,7 +112,7 @@ function calculatePrice() {
 	var query = items.name+"-"+items.size;
 	for (var i = 0; i < price.length; i++) {
 		if (price[i].Item == query) {
-			subtotal = subtotal + (parseFloat(items.quantity)*parseFloat(price[i].Price));
+			subtotal = parseFloat($(".subtotal").text()) + (parseFloat(items.quantity)*parseFloat(price[i].Price));
 			subtotal = +subtotal.toFixed(2);
 			realPrice = parseFloat(items.quantity)*parseFloat(price[i].Price);
 			realPrice = +realPrice.toFixed(2);
