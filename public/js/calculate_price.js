@@ -146,7 +146,7 @@ $(document.body).on('click', '.order-details', function() {
 
 
 $(document.body).on('click', '.completed', function() {
-	$("#"+id).fadeOut("slow");
+	$("#btn"+id).fadeOut("slow");
 });
 
 
@@ -159,7 +159,7 @@ function checkOrder() {
 			for (var j = 0; j < data[i].detail.length; j++ ){
 				temp2 = temp2 + "<div class='col-xs-12'>" + data[i].detail[j].name + " - " + data[i].detail[j].size + " - " + data[i].detail[j].quantity + "</div> ";
 			}
-			var temp = "<button class='no-style btn-block' data-toggle='modal' data-target='#myModal'><div class='row md-buffer order-details' id=" + data[i].id + "> <div class='col-xs-2'>" + data[i].name + "</div><div class='col-xs-6'>" + temp2 + "</div><div class='col-xs-2'>" + data[i].added + "</div>"+"<div class='col-xs-2'>$" + data[i].total + "</div></div></button>";
+			var temp = "<button class='no-style btn-block' data-toggle='modal' data-target='#myModal' id=btn" + data[i].id + "><div class='row md-buffer order-details' id=" + data[i].id + "> <div class='col-xs-2'>" + data[i].name + "</div><div class='col-xs-6'>" + temp2 + "</div><div class='col-xs-2'>" + data[i].added + "</div>"+"<div class='col-xs-2'>$" + data[i].total + "</div></div></button>";
 			$(".orders").append(temp);
 			}
 		}
@@ -173,7 +173,6 @@ function checkOrderByID(queryID) {
 	$("#modalBody").empty();
 	//console.log(getURL);
 	$.get( getURL, function( data ) {
-		console.log(JSON.stringify(data));
 		$("#modalHeader").text(data.name +"'s Order Details on " + data.added);
 		for (var i = 0; i < data.detail.length; i++) {
 			if (data.detail[i].desc) temp = temp + "<div class='col-xs-12'>" + data.detail[i].name + " - " + data.detail[i].size + " - " + data.detail[i].quantity + "<i> "+ data.detail[i].desc + " </i></div> ";
