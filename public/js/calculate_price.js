@@ -99,6 +99,10 @@ $(document.body).on('click', '.add-drinks', function() {
 	$.cookie('subtotal',0);
 	calculatePrice();
 });
+$(document.body).on('click', '.add-food', function() {
+	$.cookie('subtotal',0);
+	calculateFoodPrice();
+});
 function calculatePrice() {
 	var subtotal = 0;
 	var items = new Object();
@@ -117,6 +121,33 @@ function calculatePrice() {
 			$(".subtotal").text(subtotal);
 			$.cookie('subtotal',subtotal);
 			var template= items.quantity + " " + items.size + " " + items.name + " - $" + realPrice + "<br>";
+			$(".items-ordered").append(template);
+			order.push(items);
+		}
+	}
+	$.cookie("order", order);
+}
+function calculateFoodPrice() {
+	var subtotal = 0;
+	var items = new Object();
+	console.log($(".food-header").text());
+	if ($('.sandwich-panini-select').is(":visible")){
+		items.name = $(".food-header").text();
+	} else {
+		items.name = $(".default-select").val();
+	}
+	items.quantity = $(".food-item").val();
+	items.desc = $(".special-note").val();
+	// clear vals
+	$(".food-item").val("1");
+	for (var i = 0; i < price.length; i++) {
+		if (price[i].Item == items.name) {
+			subtotal = (parseFloat($(".subtotal").text()) + (parseFloat(items.quantity)*parseFloat(price[i].Price))).toFixed(2);
+			realPrice = (parseFloat(items.quantity)*parseFloat(price[i].Price)).toFixed(2);
+			//update Prices
+			$(".subtotal").text(subtotal);
+			$.cookie('subtotal',subtotal);
+			var template= items.quantity + " " + items.name + " - $" + realPrice + "<br>";
 			$(".items-ordered").append(template);
 			order.push(items);
 		}
@@ -145,7 +176,6 @@ $(document.body).on('click', '.order-details', function() {
 $(document.body).on('click', '.completed', function() {
 	$("#btn"+id).fadeOut("slow");
 });
-
 
 function checkOrder() {
 	var getURL = "/getOrders";

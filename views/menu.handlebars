@@ -23,6 +23,10 @@
 				<li><a href="#">French Vanilla</a></li>
 				<li><a href="#">Cafe Mocha</a></li>
 				<li><a href="#">Tea</a></li>
+				<li><a href="#">Hot Chocolate</a></li>
+				<li class="no-XL"><a href="#">Latte/Cappuccino</a></li>
+				<li class="no-XL"><a href="#">Vanilla Bean Latte</a></li>
+				<li class="no-XL"><a href="#">Chocolate Latte</a></li>
 			</ul>
 		</li>
 		<li class="dropdown">
@@ -30,8 +34,6 @@
 			<ul class="dropdown-menu drinks" data-toggle="modal" data-target=".drinks-modal">
 				<li class="no-XL"><a href="#">Iced Capp</a></li>
 				<li><a href="#">Iced Capp Supreme</a></li>
-				<li><a href="#">Mocha Iced Cappuccino</a></li>
-				<li><a href="#">Mocha Iced Coffee</a></li>
 				<li class="no-XL"><a href="#">Iced Coffee</a></li>
 				<li class="no-XL"><a href="#">Iced Latte</a></li>
 				<li class="no-XL"><a href="#">Vanilla Bean Iced Latte</a></li>
@@ -50,7 +52,7 @@
 		</li>
 		<li class="dropdown">
 			<span class="dropdown-toggle" data-toggle="dropdown">Baked Goods<b class="caret"></b></span>
-			<ul class="dropdown-menu baked-goods" data-toggle="modal" data-target=".baked-goods-modal">
+			<ul class="dropdown-menu food" data-toggle="modal" data-target=".food-modal">
 				<li class="cookie"><a href="#">Cookies</a></li>
 				<li><a href="#">Bagel</a></li>
 				<li><a href="#">Cinnamon Bun</a></li>
@@ -59,6 +61,27 @@
 				<li><a href="#">Donut</a></li>
 				<li><a href="#">Muffins</a></li>
 				<li><a href="#">Timbits</a></li>
+			</ul>
+		</li>
+		<li class="dropdown">
+			<span class="dropdown-toggle" data-toggle="dropdown">Sandwiches/Paninis<b class="caret"></b></span>
+			<ul class="dropdown-menu food" data-toggle="modal" data-target=".food-modal">
+				<li class="sandwich-panini"><a href="#">Extreme Italian</a></li>
+				<li class="sandwich-panini"><a href="#">Turkey Bacon Club</a></li>
+				<li class="sandwich-panini"><a href="#">Ham & Swiss</a></li>
+				<li class="sandwich-panini"><a href="#">BLT</a></li>
+				<li class="sandwich-panini"><a href="#">Chicken Salad</a></li>
+				<li class="sandwich-panini"><a href="#">Tuscan Chicken Panini</a></li>
+				<li class="sandwich-panini"><a href="#">Bacon, Tomato and Cheese Panini</a></li>
+				<li class="sandwich-panini"><a href="#">Grilled Cheese Panini</a></li>
+			</ul>
+		</li>
+		<li class="dropdown">
+			<span class="dropdown-toggle" data-toggle="dropdown">Soups/Wraps<b class="caret"></b></span>
+			<ul class="dropdown-menu food" data-toggle="modal" data-target=".food-modal">
+				<li><a href="#">Soup</a></li>
+				<li><a href="#">Chili</a></li>
+				<li><a href="#">Hot Chicken Wrap</a></li>
 			</ul>
 		</li>
 	</ul>
@@ -114,11 +137,11 @@
 		</div>
 	</div>
 </div>
-<div class="modal fade baked-goods-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div class="modal fade food-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h4 class="baked-goods-header"></h4>
+				<h4 class="food-header"></h4>
 			</div>
 			<div class="modal-body">
 				<div class="col-xs-6">
@@ -153,16 +176,22 @@
 						<option>Oatmeal Raisin Spice</option>
 						<option>Trail Mix Cookie with Fruit and Nuts</option>
 					</select>
+					<label class="sandwich-panini-label" style="display:none">Bread Type:</label>
+					<select class="selectpicker form-control sandwich-panini-select" style="display:none">
+						<option>Whole Wheat Bread</option>
+						<option>White Bread</option>
+					</select>
 				</div>
-				<div class="col-xs-6">
-					<input type="number" class="text-center form-control baked-good-item" value="1"></input>
+				<div class="col-xs-3">
+					<label>Quantity: &nbsp</label>
+					<input type="number" class="text-center form-control food-item" value="1"></input>
 				</div>
 				<div class="top-buffer col-xs-12">
 					<input type="text" class="form-control default-input" placeholder="Special Note: Heated">
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-primary add-baked-goods" data-dismiss="modal">Add</button>
+				<button type="button" class="btn btn-primary add-food" data-dismiss="modal">Add</button>
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 			</div>
 		</div>
@@ -188,7 +217,7 @@
 				<input type="text" class="form-control order-name" placeholder="John Smith">
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-primary add-baked-goods order-submit" data-dismiss="modal">Submit</button>
+				<button type="button" class="btn btn-primary order-submit" data-dismiss="modal">Submit</button>
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 			</div>
 		</div>
