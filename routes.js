@@ -53,8 +53,9 @@ module.exports = function (app) {
 	});
 	
 	app.post("/order", function(req, res) {
+		console.log('hola');
 		if (req.user) {
-			Order.insertOrder(req.body, req.user.username, JSON.parse(req.cookies.order), req.cookies.subtotal, function(err) {
+			Order.insertOrder(req.body, req.user.username, JSON.parse(req.cookies.order), JSON.parse(req.cookies.subtotal), function(err) {
 				res.redirect("back");
 			});
 		}
