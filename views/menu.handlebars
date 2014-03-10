@@ -54,13 +54,14 @@
 			<span class="dropdown-toggle" data-toggle="dropdown">Baked Goods<b class="caret"></b></span>
 			<ul class="dropdown-menu food" data-toggle="modal" data-target=".food-modal">
 				<li class="cookie"><a href="#">Cookies</a></li>
-				<li><a href="#">Bagel</a></li>
+				<li class="bagel"><a href="#">Bagel</a></li>
 				<li><a href="#">Cinnamon Bun</a></li>
 				<li><a href="#">Danish</a></li>
 				<li><a href="#">Croissant</a></li>
-				<li><a href="#">Donut</a></li>
+				<li class="donut"><a href="#">Donut</a></li>
 				<li><a href="#">Muffins</a></li>
 				<li><a href="#">Timbits</a></li>
+				<li><a href="#">Other</a></li>
 			</ul>
 		</li>
 		<li class="dropdown">
@@ -145,36 +146,50 @@
 			</div>
 			<div class="modal-body">
 				<div class="col-xs-6">
-					<select class="selectpicker form-control default-select" style="display:none">
+					<select class="selectpicker form-control food-default-select" style="display:none">
 						<option>Apple Fritter</option>
-						<option>Chocolate Dip</option>
-						<option>Honey Dip</option>
-						<option>Vanilla Dip</option>
 						<option>Blueberry Fritter</option>
 						<option>Dutchie</option>
-						<option>Maple Dip</option>
-						<option>Chocolate Glazed</option>
-						<option>Double Chocolate</option>
+						<option>Blueberry</option>
+						<option>Walnut Crunch</option>
 						<option>Old Fashion Plain</option>
 						<option>Old Fashion Glazed</option>
 						<option>Sour Cream Plain</option>
 						<option>Strawberry Vanilla</option>
 						<option>Strawberry</option>
-						<option>Boston Cream</option>
-						<option>Canadian Maple</option>
 						<option>Sour Cream Glazed</option>
-						<option>Honey Cruller</option>
-						<option>Blueberry</option>
-						<option>Walnut Crunch</option>
 					</select>
+					<label class="cookie-label" style="display:none">Cookies:</label>
 					<select class="selectpicker form-control cookie-select" style="display:none">
-						<option>Choco. Chunk</option>
-						<option>Peanut Butter</option>
-						<option>Triple Choco. Chip</option>
-						<option>White Choco. Macadamia Nut</option>
-						<option>Caramel Choco. Pecan</option>
-						<option>Oatmeal Raisin Spice</option>
-						<option>Trail Mix Cookie with Fruit and Nuts</option>
+						<option>Choco. Chunk Cookie</option>
+						<option>Peanut Butter Cookie</option>
+						<option>Triple Choco. Chip Cookie</option>
+						<option>White Choco. Macadamia Nut Cookie</option>
+						<option>Caramel Choco. Pecan Cookie</option>
+						<option>Oatmeal Raisin Spice Cookie</option>
+						<option>Trail Mix Cookie</option>
+					</select>
+					<label class="bagel-label" style="display:none">Bagels:</label>
+					<select class="selectpicker form-control bagel-select" style="display:none">
+						<option>12 Grain Bagel</option>
+						<option>Plain Bagel</option>
+						<option>Sesame Seed Bagel</option>
+						<option>Cheddar Bagel</option>
+						<option>Sun Dried Tomato Bagel</option>
+						<option>Cinnamon French Toast Bagel</option>
+						<option>Jalapeno Cheddar Bagel</option>
+					</select>
+					<label class="donut-label" style="display:none">Donuts:</label>
+					<select class="selectpicker form-control donut-select" style="display:none">
+						<option>Chocolate Dip</option>
+						<option>Honey Dip</option>
+						<option>Vanilla Dip</option>
+						<option>Maple Dip</option>
+						<option>Chocolate Glazed</option>
+						<option>Double Chocolate</option>	
+						<option>Boston Cream</option>
+						<option>Maple Swirl</option>
+						<option>Honey Crueller</option>
 					</select>
 					<label class="sandwich-panini-label" style="display:none">Bread Type:</label>
 					<select class="selectpicker form-control sandwich-panini-select" style="display:none">

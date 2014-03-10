@@ -31,7 +31,7 @@ var price = [{"Item":"Coffee-Small","Price":1.33},
 {"Item":"Flavour Shot","Price":0.25},
 {"Item":"Whipped/Espresso Shot","Price":0.60},
 {"Item":"Extreme Italian","Price":4.99},
-{"Item":"Extreme Italian  Donut Combo","Price":6.79},
+{"Item":"Extreme Italian Donut Combo","Price":6.79},
 {"Item":"Extreme Italian Soup Combo","Price":8.25},
 {"Item":"Turkey Bacon Club","Price":4.99},
 {"Item":"Turkey Bacon Club Donut Combo","Price":6.79},
@@ -83,7 +83,31 @@ var price = [{"Item":"Coffee-Small","Price":1.33},
 {"Item":"Vanilla Bean Iced Latte-Large","Price":3.54},
 {"Item":"Iced Chocolate Latte-Small","Price":2.60},
 {"Item":"Iced Chocolate Latte-Medium","Price":3.19},
-{"Item":"Iced Chocolate Latte-Large","Price":3.89}];
+{"Item":"Iced Chocolate Latte-Large","Price":3.89},
+{"Item":"Choco. Chunk Cookie","Price":0.60},
+{"Item":"Peanut Butter Cookie","Price":0.60},
+{"Item":"Triple Choco. Chip Cookie","Price":0.60},
+{"Item":"White Choco. Macadamia Nut Cookie","Price":0.60},
+{"Item":"Caramel Choco. Pecan Cookie","Price":0.60},
+{"Item":"Oatmeal Raisin Spice Cookie","Price":0.60},
+{"Item":"Trail Mix Cookie","Price":0.60},
+{"Item":"12 Grain Bagel","Price":1.60},
+{"Item":"Plain Bagel","Price":1.60},
+{"Item":"Sesame Seed Bagel","Price":1.60},
+{"Item":"Cheddar Bagel","Price":1.60},
+{"Item":"Sundried Tomato Bagel","Price":1.90},
+{"Item":"Cinnamon French Toast Bagel","Price":1.90},
+{"Item":"Jalapeno Cheddar Bagel","Price":1.90},
+{"Item":"Honey Dip","Price":0.85},
+{"Item":"Vanilla Dip","Price":0.85},
+{"Item":"Maple Dip","Price":0.85},
+{"Item":"Chocolate Dip","Price":0.85},
+{"Item":"Chocolate Glazed","Price":0.85},
+{"Item":"Double Chocolate","Price":0.85},
+{"Item":"Honey Crueller","Price":0.85},
+{"Item":"Boston Cream","Price":0.95},
+{"Item":"Maple Swirl","Price":0.95},
+{"Item":"Canadian Maple","Price":0.95}];
 
 /**
  *
@@ -130,11 +154,16 @@ function calculatePrice() {
 function calculateFoodPrice() {
 	var subtotal = 0;
 	var items = new Object();
-	console.log($(".food-header").text());
 	if ($('.sandwich-panini-select').is(":visible")){
 		items.name = $(".food-header").text();
+	} else if ($('.cookie-select').is(":visible")){
+		items.name = $(".cookie-select").val();
+	} else if ($('.bagel-select').is(":visible")){
+		items.name = $(".bagel-select").val();
+	} else if ($('.donut-select').is(":visible")){
+		items.name = $(".donut-select").val();
 	} else {
-		items.name = $(".default-select").val();
+		items.name = $(".food-default-select").val();
 	}
 	items.quantity = $(".food-item").val();
 	items.desc = $(".special-note").val();

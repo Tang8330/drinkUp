@@ -37,6 +37,11 @@ $(document.body).on('click', 'ul.drinks li', function() {
 
 $(document.body).on('click', 'ul.food li', function() {
 	$(".cookie-select").hide();
+	$(".cookie-label").hide();
+	$(".bagel-select").hide();
+	$(".bagel-label").hide();
+	$(".donut-select").hide();
+	$(".donut-label").hide();
 	$(".default-select").hide();
 	$(".default-input").hide();
 	$(".sandwich-panini-select").hide();
@@ -44,13 +49,21 @@ $(document.body).on('click', 'ul.food li', function() {
 	
 	if ($(this).hasClass("cookie")) {
 		$(".cookie-select").show();
-	}
-	if ($(this).hasClass("sandwich-panini")) {
+		$(".cookie-label").show();
+		$(".default-input").show();
+	} else if ($(this).hasClass("bagel")) {
+		$(".bagel-select").show();
+		$(".bagel-label").show();
+		$(".default-input").show();
+	} else if ($(this).hasClass("donut")) {
+		$(".donut-select").show();
+		$(".donut-label").show();
+		$(".default-input").show();
+	} else if ($(this).hasClass("sandwich-panini")) {
 		$(".sandwich-panini-select").show();
 		$(".sandwich-panini-label").show();
 		$(".default-input").show();
-	}
-	else {
+	} else {
 		$(".default-select").show();
 		$(".default-input").show();
 	}
